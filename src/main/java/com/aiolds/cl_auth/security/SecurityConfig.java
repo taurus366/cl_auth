@@ -15,7 +15,7 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final List<SecurityCustomizer> securityCustomizers;
+//    private final List<SecurityCustomizer> securityCustomizers;
     private final JwtFilter jwtFilter;
 
     @Bean
@@ -38,9 +38,9 @@ public class SecurityConfig {
                         .anyRequest().authenticated());
 
 
-        for (SecurityCustomizer custom : securityCustomizers) {
-            custom.customize(http);
-        }
+//        for (SecurityCustomizer custom : securityCustomizers) {
+//            custom.customize(http);
+//        }
 
         return http.build();
     }
