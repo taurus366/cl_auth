@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class initDB implements CommandLineRunner {
@@ -21,10 +23,14 @@ public class initDB implements CommandLineRunner {
     }
 
     private void initAdmin() {
-        UserEntity admin = new UserEntity();
-        admin.setUsername("admin");
-        admin.setPassword(passwordEncoder.encode("aiolds"));
-        admin.setEmail("taurus.ali47@gmail.com");
-        userRepository.save(admin);
+        List<UserEntity> adminDB1 = userRepository.findAll();
+
+        if(adminDB1.isEmpty()) {
+            UserEntity admin = new UserEntity();
+            admin.setUsername("root");
+            admin.setPassword(passwordEncoder.encode("aiolds"));
+            admin.setEmail("taurus.ali47@gmail.com");
+            userRepository.save(admin);
+        }
     }
 }

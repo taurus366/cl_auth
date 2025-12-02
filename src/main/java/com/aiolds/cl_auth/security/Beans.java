@@ -13,12 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class Beans {
 
-//    private final JwtFilter jwtFilter;
-//    @Bean
-//    public JwtFilter jwtFilter() {
-//        return jwtFilter;
-//    }
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
